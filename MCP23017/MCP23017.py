@@ -281,7 +281,7 @@ class MCP23017(object):
       ports = {}
       ports[str(self.ADDRESS)+'_A'] = PortManager(self, 0, interrupt_s['A'])
       ports[str(self.ADDRESS)+'_B'] = PortManager(self, 0x10 if self.BANK else 1, interrupt_s['B'])
-    elif isinstance(x, basestring): # 16-bit configuration - NOT SUPPORTED
+    elif isinstance(x, str): # 16-bit configuration - NOT SUPPORTED
       self.enable_toggle_mode()
       self.set_config(IOCON['MIRROR'])
       ports[0] = PortManager(self,0,interrupt_s)
